@@ -16,7 +16,7 @@ provider "aws" {
 }
 
 provider "github" {
-  token = "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"
+  token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 }
 
 resource "github_repository" "myrepo" {
@@ -90,7 +90,7 @@ resource "aws_instance" "tf-docker-ec2" {
           curl -SL https://github.com/docker/compose/releases/download/v2.17.3/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
           chmod +x /usr/local/bin/docker-compose
           mkdir -p /home/ec2-user/bookstore-api
-          TOKEN="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"
+          TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
           FOLDER="https://$TOKEN@raw.githubusercontent.com/muslumhanozturk/bookstore-api-repo/main/"
           curl -s --create-dirs -o "/home/ec2-user/bookstore-api/app.py" -L "$FOLDER"bookstore-api.py
           curl -s --create-dirs -o "/home/ec2-user/bookstore-api/requirements.txt" -L "$FOLDER"requirements.txt
