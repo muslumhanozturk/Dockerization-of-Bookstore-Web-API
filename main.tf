@@ -1,4 +1,4 @@
-resource "github_repository" "bookstore-project" {
+resource "github_repository" "myrepo" {
   name        = "bookstore-project"
   description = "This bookstore-project repository was created with terraform"
   auto_init   = true
@@ -126,7 +126,7 @@ resource "aws_instance" "instance" {
   key_name = var.key-name
   vpc_security_group_ids = [ aws_security_group.sec-gr.id ]       # security_groups = ["tf-provisioner-sg"] this is not recommended
   user_data = base64encode(templatefile("userdata.sh", {user-data-git-token = var.git-token, user-data-git-name = var.git-name}))
-  depends_on = [ github_repository_file.Dockerfile ]
+  depends_on = [ github_repository.myrepo, github_repository_file.Dockerfile ]                 # depends_on = [github_repository.myrepo, github_repository_file.app-files]
   tags = {
     Name = "Web Server of Bookstore"
   }
